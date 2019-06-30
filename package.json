@@ -12,14 +12,19 @@
   },
   "config": {
     "react-native-storybook-loader": {
-      "searchDir": ["./src"],
+      "searchDir": [
+        "./src"
+      ],
       "pattern": "**/*.stories.js",
       "outputFile": "./storybook/storyLoader.js"
     }
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "react": "16.8.3",
-    "react-native": "0.59.9"
+    "react-native": "0.59.9",
+    "react-native-calendars": "^1.193.0",
+    "spotify-web-api-node": "^4.0.0"
   },
   "devDependencies": {
     "@babel/core": "7.4.5",
@@ -28,6 +33,7 @@
     "@storybook/addon-links": "^5.1.9",
     "@storybook/addons": "^5.1.9",
     "@storybook/react-native": "^5.1.9",
+    "@storybook/react-native-server": "^5.1.9",
     "babel-jest": "24.8.0",
     "babel-loader": "^8.0.6",
     "jest": "24.8.0",

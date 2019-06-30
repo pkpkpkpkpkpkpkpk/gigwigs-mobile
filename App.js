@@ -1,13 +1,18 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { ScrollView } from 'react-native';
+import axios from 'axios';
 
-import styles from './styles';
+import Layout from './src/hoc/Layout/Layout';
+import styles from './App.styles';
+
+axios.defaults.baseURL = 'https://gigwigs-server.appspot.com';
+axios.defaults.timeout = 10000;
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>...</Text>
-    </View>
+    <ScrollView style={styles.container}>
+      <Layout />
+    </ScrollView>
   );
 }
 
