@@ -19,11 +19,13 @@ const Gig = props => {
   }
 
   return (
-    <TouchableOpacity onPress={props.onSpotify ? () => props.toggleSelectGig(props.id) : null} style={styles.touchable}>
-      <ImageBackground source={props.image ? props.image : gigImage} style={styles.imageBackground}>
-        <View style={props.selected ? styles.container : [styles.unselected, styles.container]}>
+    <TouchableOpacity onPress={props.onSpotify ? () => props.toggleSelectGig(props.id) : null}>
+      <ImageBackground 
+        source={props.image ? { uri: props.image } : gigImage} 
+        style={props.selected ? styles.imageBackground : [styles.unselected, styles.imageBackground]}>
+        <View style={styles.container}>
           <Text style={styles.text}>{props.artist.slice(0, 50) + etc}</Text>
-          <Text style={styles.text}>{props.venue}</Text>
+          <Text style={[styles.text, styles.venueText]}>{props.venue}</Text>
           {notAvailable}
         </View>
       </ImageBackground>

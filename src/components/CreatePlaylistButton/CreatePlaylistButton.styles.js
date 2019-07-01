@@ -5,5 +5,10 @@ export default {
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: '#f1be5b'
+  },
+
+  text: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 20
   }
 };

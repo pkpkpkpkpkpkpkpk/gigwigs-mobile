@@ -7,18 +7,19 @@ export default {
     backgroundColor: 'white'
   },
 
-  calendarContainer: {
-
+  text: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 20
   },
 
-  showCalendar: {
-    
+  hideCalendar: {
+    display: 'none'
   },
 
   calendar: {
     calendarBackground: 'black',
     monthTextColor: 'white',
-    arrowColor: '#f1be5b',
+    arrowColor: 'white',
     dayTextColor: 'white',
     todayTextColor: '#f1be5b',
     selectedDayBackgroundColor: '#f1be5b',

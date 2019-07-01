@@ -6,6 +6,10 @@ export default {
     height: 0.5 * Dimensions.get('window').width
   },
 
+  unselected: {
+    opacity: 0.5
+  },
+
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -16,11 +20,17 @@ export default {
   },
 
   text: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 20,
     color: 'white',
     textAlign: 'center',
     margin: 5,
     textShadowColor: 'black',
-    textShadowOffset: { width: 1, height: 1 },
-    textShadowRadius: 3
+    textShadowRadius: 5
+  },
+
+  venueText: {
+    fontSize: 16,
+    color: '#f1be5b'
   }
 };

@@ -30,7 +30,7 @@ const CreatePlaylistButton = props => {
   return (
     <TouchableOpacity onPress={null}>
       <View style={styles.container}>
-        <Text>Create Playlist</Text>
+        <Text style={styles.text}>Create Playlist</Text>
       </View>
     </TouchableOpacity>
   );
