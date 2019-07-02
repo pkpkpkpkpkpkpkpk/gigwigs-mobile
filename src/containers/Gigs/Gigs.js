@@ -44,7 +44,7 @@ class Gigs extends Component {
             this.getSpotifyOAuthToken();
           } else {
             this.setState({
-              errorMessage: 'Nothing on...'
+              errorMessage: `Nothing's on...`
             });
           }
         } else {

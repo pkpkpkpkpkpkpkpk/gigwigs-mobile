@@ -22,7 +22,7 @@ class Layout extends Component {
         <DateSelector />
         <ToggleSettingsButton navigation={this.props.navigation} />
         <Gigs />
-        <CreatePlaylistButton />
+        <CreatePlaylistButton navigation={this.props.navigation} />
       </ScrollView>
     );
   }

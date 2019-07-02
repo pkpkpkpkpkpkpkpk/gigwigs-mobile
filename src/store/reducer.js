@@ -2,8 +2,7 @@ import * as actionTypes from './actions';
 
 const initialState = {
   when: `${new Date().getFullYear()}-${new Date().toLocaleDateString('en-US', { month: '2-digit' })}-${new Date().getDate()}`,
-  gigs: [],
-  where: 'Sydney'
+  gigs: []
 }
 
 const reducer = (state = initialState, action) => {

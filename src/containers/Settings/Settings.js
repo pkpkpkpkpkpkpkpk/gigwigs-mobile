@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ScrollView, TouchableHighlight, Text, Image } from 'react-native';
+import { View, StatusBar, ScrollView, TouchableHighlight, Text } from 'react-native';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
@@ -35,15 +35,18 @@ class Settings extends Component {
     // only show exit button if a location has already been selected
     let exitSettingsButton = null;
     if (this.props.where) {
-      <ExitSettingsButton onPress={this.exitHandler} />;
+      exitSettingsButton = <ExitSettingsButton onPress={this.exitHandler} />;
     }
 
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        <Logo bright />
-        {locationButtons}
-        {exitSettingsButton}
-      </ScrollView>
+      <View style={styles.screen}>
+        <StatusBar barStyle="light-content" />
+        <ScrollView contentContainerStyle={styles.container}>
+          <Logo bright />
+          {locationButtons}
+          {exitSettingsButton}
+        </ScrollView>
+      </View>
     );
   }
 }

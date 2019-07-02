@@ -1,8 +1,12 @@
 export default {
+  screen: {
+    flex: 1,
+    backgroundColor: 'black'
+  },
+
   container: {
     flex: 1,
     marginTop: 35,
-    backgroundColor: 'black',
     justifyContent: 'center',
     alignItems: 'center'
   },

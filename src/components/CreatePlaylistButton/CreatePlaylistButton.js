@@ -21,14 +21,8 @@ const CreatePlaylistButton = props => {
   });
   const authUrl = spotifyApi.createAuthorizeURL(scopes);
 
-  // const onClickHandler = () => {
-  //   if (enabled) {
-  //     window.location.href = authUrl
-  //   }
-  // }
-
   return (
-    <TouchableOpacity onPress={null}>
+    <TouchableOpacity onPress={() => props.navigation.navigate('Auth', { url: authUrl })}>
       <View style={styles.container}>
         <Text style={styles.text}>Create Playlist</Text>
       </View>
