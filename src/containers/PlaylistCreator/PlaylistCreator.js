@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Linking, View, Text } from 'react-native';
+import { StatusBar, View, Text } from 'react-native';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import spotifyWebApi from 'spotify-web-api-node';
@@ -9,29 +9,21 @@ import Spinner from '../../components/UI/Spinner/Spinner';
 import styles from './PlaylistCreator.styles.js';
 
 class PlaylistCreator extends Component {
+  static navigationOptions = {
+    headerStyle: {
+      display: 'none'
+    },
+  };
+
   state = {
-    spotifyUserAuthCode: null,
     spotifyUserId: null,
     spotifyUserToken: null,
     message: null
   }
 
   componentDidMount() {
-    Linking.getInitialURL()
-      .then(url => {
-        if (url) {
-          this.setState({
-            spotifyUserAuthCode: url
-          })
-        }
-      })
-      .catch(error => (
-        this.errorHandler(error)
-      ));
-
-
     const spotifyApi = new spotifyWebApi({
-      redirectUri: 'https://www.gigwigs.org/playlist',
+      redirectUri: 'https://gigwigs-mobile-server.appspot.com/appRedirect',
       clientId: 'e395299ea7a84cf2b3833d140e0fb40f'
     });
 
@@ -55,19 +47,26 @@ class PlaylistCreator extends Component {
       spotifyApi.getArtistTopTracks(artistId, 'AU')
         .then(
           data => {
-            // artist's last top track
-            playlistTracks.push(data.body.tracks[data.body.tracks.length - 1].uri);
-            // artist's 2nd top track
-            playlistTracks.push(data.body.tracks[1].uri);
+            if (data.body.tracks.length > 1) {
+              // artist's last top track
+              playlistTracks.push(data.body.tracks[data.body.tracks.length - 1].uri);
+              // artist's 2nd top track
+              playlistTracks.push(data.body.tracks[1].uri);
+            // else if artist only has 1 track
+            } else {
+              playlistTracks.push(data.body.tracks[0].uri);
+            }
           }, 
           error => (
             this.errorHandler(error)
           ));
     });
 
+    
+    const authCode = this.props.navigation.getParam('authCode');
 
     axios.post('/spotifyUserAuth', { 
-      authCode: this.state.spotifyUserAuthCode 
+      authCode: authCode
     })
       .then(res => {
         if (!res.data.error) {
@@ -143,13 +142,16 @@ class PlaylistCreator extends Component {
     let status = <Spinner />;
     if (this.state.message) {
       status = (
-        <Text>{this.state.message}</Text>
+        <Text style={styles.text}>{this.state.message}</Text>
       );
     }
 
     return (
-      <View style={styles.container}>
-        {status}
+      <View style={styles.screen}>
+        <StatusBar barStyle="light-content" />
+        <View style={styles.container}>
+          {status}
+        </View>
       </View>
     );
   }

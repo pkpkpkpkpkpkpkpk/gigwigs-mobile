@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { ScrollView } from 'react-native';
+import React, { Component, Fragment } from 'react';
+import { StatusBar, ScrollView } from 'react-native';
 
 import Logo from '../../components/UI/Logo/Logo';
 import DateSelector from '../../containers/DateSelector/DateSelector';
@@ -17,13 +17,16 @@ class Layout extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <Logo />
-        <DateSelector />
-        <ToggleSettingsButton navigation={this.props.navigation} />
-        <Gigs />
-        <CreatePlaylistButton navigation={this.props.navigation} />
-      </ScrollView>
+      <Fragment>
+        <StatusBar barStyle="dark-content" />
+        <ScrollView style={styles.container}>
+          <Logo />
+          <DateSelector />
+          <ToggleSettingsButton navigation={this.props.navigation} />
+          <Gigs />
+          <CreatePlaylistButton navigation={this.props.navigation} />
+        </ScrollView>
+      </Fragment>
     );
   }
 }

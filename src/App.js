@@ -40,7 +40,7 @@ loadFont('Montserrat-Regular', fonts.MONTSERRAT_REGULAR, 'ttf');
 loadFont('Montserrat-Bold', fonts.MONTSERRAT_BOLD, 'ttf');
 
 // set axios defaults
-axios.defaults.baseURL = 'https://gigwigs-server.appspot.com';
+axios.defaults.baseURL = 'https://gigwigs-mobile-server.appspot.com';
 axios.defaults.timeout = 10000;
 
 class App extends Component {
