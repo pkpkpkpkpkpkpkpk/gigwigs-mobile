@@ -22,6 +22,11 @@ class Gigs extends Component {
     // refresh gigs if date or location changes
     if (this.props.when !== prevProps.when || this.props.where !== prevProps.where) {
       this.getGigs();
+
+      // clear any messages if there are any
+      this.setState({
+        errorMessage: null
+      });
     }
   }
 

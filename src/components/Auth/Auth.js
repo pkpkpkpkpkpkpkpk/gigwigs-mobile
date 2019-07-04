@@ -47,7 +47,7 @@ class Auth extends Component {
           </View>
         </View>
 
-        <TouchableHighlight onPress={() => this.props.navigation.navigate('Home')}>
+        <TouchableHighlight onPress={() => this.props.navigation.goBack()}>
           <View style={styles.backButtonContainer}>
             <Text style={styles.backButtonText}>Back</Text>
           </View>

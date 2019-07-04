@@ -14,9 +14,7 @@ export default {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    // shadowColor: 'black',
-    // shadowOffset: { width: 0, height: 0 },
-    // shadowRadius: 5
+    overflow: 'hidden'
   },
 
   text: {

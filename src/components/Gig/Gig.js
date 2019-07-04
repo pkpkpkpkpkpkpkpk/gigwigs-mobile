@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, ImageBackground, View, Text, Image } from 'react-native';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 import gigImage from '../../assets/images/gig-image.jpg';
 import notAvailableCross from '../../assets/images/red-cross.png';
@@ -8,7 +8,7 @@ import styles from './Gig.styles.js';
 
 const Gig = props => {
   let etc = '';
-  if (props.artist.length > 50) {
+  if (props.artist.length > 35) {
     etc = '...';
   }
 
@@ -24,7 +24,7 @@ const Gig = props => {
         source={props.image ? { uri: props.image } : gigImage} 
         style={props.selected ? styles.imageBackground : [styles.unselected, styles.imageBackground]}>
         <View style={styles.container}>
-          <Text style={styles.text}>{props.artist.slice(0, 50) + etc}</Text>
+          <Text style={styles.text}>{props.artist.slice(0, 35) + etc}</Text>
           <Text style={[styles.text, styles.venueText]}>{props.venue}</Text>
           {notAvailable}
         </View>
@@ -33,13 +33,13 @@ const Gig = props => {
   )
 }
 
-// Gig.propTypes = {
-//   id: PropTypes.number.isRequired,
-//   artist: PropTypes.string.isRequired,
-//   venue: PropTypes.string.isRequired,
-//   image: PropTypes.string,
-//   selected: PropTypes.bool.isRequired,
-//   toggleSelectGig: PropTypes.func.isRequired
-// };
+Gig.propTypes = {
+  id: PropTypes.number.isRequired,
+  artist: PropTypes.string.isRequired,
+  venue: PropTypes.string.isRequired,
+  image: PropTypes.string,
+  selected: PropTypes.bool.isRequired,
+  toggleSelectGig: PropTypes.func.isRequired
+};
 
 export default Gig;
