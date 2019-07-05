@@ -12,7 +12,7 @@ import persistedReducer from './store/persistedReducer';
 import * as fonts from './assets/fonts/fonts-base64.js';
 import Layout from './hoc/Layout/Layout';
 import Settings from './containers/Settings/Settings';
-import Auth from './components/Auth/Auth';
+import Auth from './containers/Auth/Auth';
 import PlaylistCreator from './containers/PlaylistCreator/PlaylistCreator';
 
 //configure navigation

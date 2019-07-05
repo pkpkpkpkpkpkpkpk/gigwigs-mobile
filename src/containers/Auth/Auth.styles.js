@@ -2,8 +2,7 @@ import { Platform } from 'react-native';
 
 export default {
   container: {
-    flex: 1,
-    backgroundColor: 'black'
+    flex: 1
   },
 
   backButtonContainer: {

@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { StatusBar, View, Text } from 'react-native';
+import { View, Text } from 'react-native';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import spotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios';
 import moment from 'moment-timezone';
 
+import ScreenWithStatusBar from '../../hoc/ScreenWithStatusBar/ScreenWithStatusBar';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import styles from './PlaylistCreator.styles.js';
 
@@ -148,12 +149,11 @@ class PlaylistCreator extends Component {
     }
 
     return (
-      <View style={styles.screen}>
-        <StatusBar barStyle="light-content" />
+      <ScreenWithStatusBar theme='dark'>
         <View style={styles.container}>
           {status}
         </View>
-      </View>
+      </ScreenWithStatusBar>
     );
   }
 }

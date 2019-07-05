@@ -1,13 +1,21 @@
 import { Dimensions } from 'react-native';
 
+// calculates side length of container
+const dim = Dimensions.get('window');
+let sideLength = dim.width / 2;
+// if screen orientation is initially landscape
+if (dim.width > dim.height) {
+  sideLength = dim.height / 2;
+}
+
 export default {
   imageBackground: {
-    width: 0.5 * Dimensions.get('window').width,
-    height: 0.5 * Dimensions.get('window').width
+    width: sideLength,
+    height: sideLength
   },
 
   unselected: {
-    opacity: 0.5
+    opacity: 0.25
   },
 
   container: {

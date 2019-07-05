@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { View, StatusBar, ScrollView, TouchableHighlight, Text } from 'react-native';
+import { ScrollView, TouchableOpacity, Text } from 'react-native';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+import ScreenWithStatusBar from '../../hoc/ScreenWithStatusBar/ScreenWithStatusBar';
 import Logo from '../../components/UI/Logo/Logo';
 import ExitSettingsButton from '../../components/UI/ExitSettingsButton/ExitSettingsButton';
 import * as actionTypes from '../../store/actions';
@@ -23,13 +24,13 @@ class Settings extends Component {
     const locations = ['Sydney', 'Melbourne', 'Adelaide', 'Perth', 'Brisbane', 'Canberra', 'Hobart'];
 
     const locationButtons = locations.map( (location, index) => (
-      <TouchableHighlight 
+      <TouchableOpacity 
         key={index} 
         onPress={() => this.props.setWhere(location) && this.exitHandler()}>
         <Text 
           style={location === this.props.where ? styles.selected : styles.text}>
           {location}</Text>
-      </TouchableHighlight>
+      </TouchableOpacity>
     ));
 
     // only show exit button if a location has already been selected
@@ -39,14 +40,13 @@ class Settings extends Component {
     }
 
     return (
-      <View style={styles.screen}>
-        <StatusBar barStyle="light-content" />
+      <ScreenWithStatusBar theme='dark'>
         <ScrollView contentContainerStyle={styles.container}>
           <Logo bright />
           {locationButtons}
           {exitSettingsButton}
         </ScrollView>
-      </View>
+      </ScreenWithStatusBar>
     );
   }
 }

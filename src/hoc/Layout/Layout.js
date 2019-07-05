@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
-import { StatusBar, ScrollView } from 'react-native';
+import React, { Component } from 'react';
+import { ScrollView } from 'react-native';
 
+import ScreenWithStatusBar from '../ScreenWithStatusBar/ScreenWithStatusBar';
 import Logo from '../../components/UI/Logo/Logo';
 import DateSelector from '../../containers/DateSelector/DateSelector';
 import ToggleSettingsButton from '../../components/UI/ToggleSettingsButton/ToggleSettingsButton';
@@ -17,8 +18,7 @@ class Layout extends Component {
 
   render() {
     return (
-      <Fragment>
-        <StatusBar barStyle="dark-content" />
+      <ScreenWithStatusBar theme='dark'>
         <ScrollView style={styles.container}>
           <Logo />
           <DateSelector />
@@ -26,7 +26,7 @@ class Layout extends Component {
           <Gigs />
           <CreatePlaylistButton navigation={this.props.navigation} />
         </ScrollView>
-      </Fragment>
+      </ScreenWithStatusBar>
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { TouchableHighlight, View, Text } from 'react-native';
+import { TouchableOpacity, View, Text } from 'react-native';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Calendar } from 'react-native-calendars';
@@ -35,11 +35,11 @@ class DateSelector extends Component {
 
     return (
       <Fragment>
-        <TouchableHighlight onPress={() => this.setState(prevState => ({ showCalendar: !prevState.showCalendar }))}>
+        <TouchableOpacity onPress={() => this.setState(prevState => ({ showCalendar: !prevState.showCalendar }))}>
           <View style={styles.dateContainer}>
             <Text style={styles.text}>{`${prefix}${displayDate}`}</Text>
           </View>
-        </TouchableHighlight>
+        </TouchableOpacity>
 
         <View style={!this.state.showCalendar ? styles.hideCalendar : null}>
           <Calendar

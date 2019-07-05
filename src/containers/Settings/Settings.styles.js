@@ -1,11 +1,6 @@
 import { Platform } from 'react-native';
 
 export default {
-  screen: {
-    flex: 1,
-    backgroundColor: 'black'
-  },
-
   container: {
     flex: 1,
     marginTop: Platform.OS === 'ios' ? 35 : 0,

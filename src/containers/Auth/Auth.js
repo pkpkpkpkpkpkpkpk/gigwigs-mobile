@@ -1,9 +1,10 @@
-import React, { Component, Fragment } from 'react';
-import { StatusBar, TouchableHighlight, View, Text } from 'react-native';
+import React, { Component } from 'react';
+import { TouchableOpacity, View, Text } from 'react-native';
 // import PropTypes from 'prop-types';
 import { WebView } from 'react-native-webview';
 
-import Spinner from '../UI/Spinner/Spinner';
+import ScreenWithStatusBar from '../../hoc/ScreenWithStatusBar/ScreenWithStatusBar';
+import Spinner from '../../components/UI/Spinner/Spinner';
 import styles from './Auth.styles';
 
 class Auth extends Component {
@@ -34,9 +35,7 @@ class Auth extends Component {
     }
 
     return (
-      <Fragment>
-        <StatusBar barStyle="light-content" />
-
+      <ScreenWithStatusBar theme='dark'>
         <View style={styles.container}>
           {spinner}
           <View style={this.state.loading ? styles.hide : styles.webViewContainer}>
@@ -47,12 +46,12 @@ class Auth extends Component {
           </View>
         </View>
 
-        <TouchableHighlight onPress={() => this.props.navigation.goBack()}>
+        <TouchableOpacity onPress={() => this.props.navigation.goBack()}>
           <View style={styles.backButtonContainer}>
             <Text style={styles.backButtonText}>Back</Text>
           </View>
-        </TouchableHighlight>
-      </Fragment>
+        </TouchableOpacity>
+      </ScreenWithStatusBar>
     );
   }
 } 
