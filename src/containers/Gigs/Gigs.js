@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import moment from 'moment-timezone';
 
 import Gig from '../../components/Gig/Gig';
 import Spinner from '../../components/UI/Spinner/Spinner';
@@ -36,8 +37,8 @@ class Gigs extends Component {
 
     axios.post('/getGigs', {
       where: this.props.where,
-      when: new Date(this.props.when).toUTCString(),
-      timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone
+      when: moment(this.props.when).utc().format(),
+      timeZone: moment.tz.guess(true)
     })
       .then(res => {
         if (!res.data.error) {

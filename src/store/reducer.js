@@ -1,7 +1,9 @@
+import moment from 'moment';
+
 import * as actionTypes from './actions';
 
 const initialState = {
-  when: `${new Date().toLocaleDateString('en-US', { year: 'numeric' })}-${new Date().toLocaleDateString('en-US', { month: '2-digit' })}-${new Date().toLocaleDateString('en-US', { day: '2-digit' })}`,
+  when: `${moment().format('YYYY')}-${moment().format('MM')}-${moment().format('DD')}`,
   gigs: []
 }
 

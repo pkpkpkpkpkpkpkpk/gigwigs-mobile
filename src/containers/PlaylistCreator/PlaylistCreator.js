@@ -4,6 +4,7 @@ import { StatusBar, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import spotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios';
+import moment from 'moment-timezone';
 
 import Spinner from '../../components/UI/Spinner/Spinner';
 import styles from './PlaylistCreator.styles.js';
@@ -89,7 +90,7 @@ class PlaylistCreator extends Component {
                 spotifyApiAuthenticated.createPlaylist(
                   this.state.spotifyUserId, 
                   // playlist title
-                  `Gigs - ${new Date(this.props.when).toLocaleDateString('en-US', { day: '2-digit' })} ${new Date(this.props.when).toLocaleDateString('en-US', { month: 'short' })} - ${this.props.where.charAt(0).toUpperCase()}${this.props.where.slice(1)}`, 
+                  `Gigs - ${moment(this.props.when).format('Do MMM')} - ${this.props.where.charAt(0).toUpperCase()}${this.props.where.slice(1)}`, 
                   // playlist description
                   { 'description' : 'Playlist by GigWigs' }
                 )

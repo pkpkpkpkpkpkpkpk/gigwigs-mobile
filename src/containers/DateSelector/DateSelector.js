@@ -3,6 +3,7 @@ import { TouchableHighlight, View, Text } from 'react-native';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Calendar } from 'react-native-calendars';
+import moment from 'moment-timezone';
 
 import * as actionTypes from '../../store/actions';
 import styles from './DateSelector.styles.js';
@@ -21,19 +22,16 @@ class DateSelector extends Component {
   }
 
   render() {
-    let displayDate = `${new Date(this.props.when).toLocaleDateString('en-US', { weekday: 'short' })} ${new Date(this.props.when).toLocaleDateString('en-US', { day: '2-digit' })} ${new Date(this.props.when).toLocaleDateString('en-US', { month: 'short' })}`;
+    let displayDate = moment(this.props.when).format('ddd Do MMM');
 
-    const tonight = `${new Date().toLocaleDateString('en-US', { weekday: 'short' })} ${new Date().toLocaleDateString('en-US', { day: '2-digit' })} ${new Date().toLocaleDateString('en-US', { month: 'short' })}`;
-    const tomorrow = `${new Date().toLocaleDateString('en-US', { weekday: 'short' })} ${new Date(new Date().setDate(new Date().getDate() + 1)).toLocaleDateString('en-US', { day: '2-digit' })} ${new Date().toLocaleDateString('en-US', { month: 'short' })}`;
-    const yesterday = `${new Date().toLocaleDateString('en-US', { weekday: 'short' })} ${new Date(new Date().setDate(new Date().getDate() - 1)).toLocaleDateString('en-US', { day: '2-digit' })} ${new Date().toLocaleDateString('en-US', { month: 'short' })}`;
-    let prefix = '';
-    if (displayDate.slice(4) === tonight.slice(4)) {
-      prefix = 'Tonight - ';
-    } else if (displayDate.slice(4) === tomorrow.slice(4)) {
-      prefix = 'Tomorrow - ';
-    } else if (displayDate.slice(4) === yesterday.slice(4)) {
-      prefix = 'Yesterday - ';
-    }
+    let prefix = moment(this.props.when).calendar(null, { 
+      sameDay: '[Today - ]',
+      nextDay: '[Tomorrow - ]',
+      lastDay: '[Yesterday - ]',
+      nextWeek: '[]',
+      lastWeek: '[]',
+      sameElse: '[]'
+    });
 
     return (
       <Fragment>
@@ -48,8 +46,8 @@ class DateSelector extends Component {
             theme={styles.calendar}
             hideExtraDays={true}
             firstDay={1}
-            minDate={new Date(new Date().setMonth(new Date().getMonth() - 3))}
-            maxDate={new Date(new Date().setMonth(new Date().getMonth() + 3))}
+            minDate={moment().subtract(3, 'months').format()}
+            maxDate={moment().add(3, 'months').format()}
             onDayPress={date => this.changeDateHandler(date)}
             onDayLongPress={date => this.changeDateHandler(date)}
             markedDates={{ [this.props.when]: { selected: true } }} />
