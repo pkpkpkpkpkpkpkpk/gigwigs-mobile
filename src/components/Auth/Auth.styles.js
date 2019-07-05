@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 export default {
   container: {
     flex: 1,
@@ -14,12 +16,13 @@ export default {
 
   backButtonText: {
     fontFamily: 'Montserrat-Bold',
-    fontSize: 20
+    fontSize: 20,
+    color: 'black'
   },
 
   webViewContainer: {
     flex: 1,
-    marginTop: 35
+    marginTop: Platform.OS === 'ios' ? 35 : 0,
   },
 
   hide: {

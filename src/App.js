@@ -35,8 +35,7 @@ const MainNavigation = createAppContainer(MainStack);
 let store = createStore(persistedReducer);
 let persistor = persistStore(store)
 
-// load custom fonts
-loadFont('Montserrat-Regular', fonts.MONTSERRAT_REGULAR, 'ttf');
+// load custom font
 loadFont('Montserrat-Bold', fonts.MONTSERRAT_BOLD, 'ttf');
 
 // set axios defaults

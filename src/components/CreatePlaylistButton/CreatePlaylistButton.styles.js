@@ -6,17 +6,21 @@ export default {
     alignItems: 'center'
   },
 
-  text: {
-    fontFamily: 'Montserrat-Bold',
-    fontSize: 20
-  },
-
   enabledContainer: {
     backgroundColor: '#f1be5b'
   },
 
   disabledContainer: {
     backgroundColor: '#ccc',
+  },
+
+  text: {
+    fontFamily: 'Montserrat-Bold',
+    fontSize: 20
+  },
+
+  enabledText: {
+    color: 'black'
   },
 
   disabledText: {

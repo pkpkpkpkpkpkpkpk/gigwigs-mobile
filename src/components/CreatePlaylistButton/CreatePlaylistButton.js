@@ -27,7 +27,7 @@ const CreatePlaylistButton = props => {
       }
     }}>
       <View style={enabled ? [styles.enabledContainer, styles.container] : [styles.disabledContainer, styles.container]}>
-        <Text style={enabled ? styles.text : [styles.disabledText, styles.text]}>Create Playlist</Text>
+        <Text style={enabled ? [styles.enabledText, styles.text] : [styles.disabledText, styles.text]}>Create Playlist</Text>
       </View>
     </TouchableOpacity>
   );

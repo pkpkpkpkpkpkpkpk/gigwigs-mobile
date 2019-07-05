@@ -9,7 +9,8 @@ export default {
 
   text: {
     fontFamily: 'Montserrat-Bold',
-    fontSize: 20
+    fontSize: 20,
+    color: 'black'
   },
 
   hideCalendar: {

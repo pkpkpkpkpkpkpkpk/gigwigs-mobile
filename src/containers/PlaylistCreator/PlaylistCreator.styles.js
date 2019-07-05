@@ -1,3 +1,5 @@
+import { Platform } from 'react-native';
+
 export default {
   screen: {
     flex: 1,
@@ -6,7 +8,7 @@ export default {
 
   container: {
     flex: 1,
-    marginTop: 35,
+    marginTop: Platform.OS === 'ios' ? 35 : 0,
     justifyContent: 'center',
     alignItems: 'center'
   },
